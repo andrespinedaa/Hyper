@@ -1,7 +1,8 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { PanelFormat } from "../../interfaces/formats";
 
 const initialState :PanelFormat = {
+    id: 0,
     blade: 0,
     color: "",
     height: 0,
@@ -10,14 +11,14 @@ const initialState :PanelFormat = {
 } 
 
 const panelSlice = createSlice ({
-    name: "panels",
+    name: "PANEL",
     initialState: initialState,
     reducers: {
-        EDITA_PANEL: (state, action) => {
+        EDIT_PANEL: (state, action: PayloadAction) => {
         }
     }
 })
 
-export const { EDITA_PANEL } = panelSlice.actions
+export const { EDIT_PANEL } = panelSlice.actions
 
 export default panelSlice;

@@ -2,22 +2,21 @@ import { Link } from "react-router-dom";
 import "./css/navbar.css";
 
 interface props {
-  type: string;
+  links: string[];
+  section: string;
 }
 
-function Navbar({ type }: props) {
+function Navbar({ links, section }: props) {
   return (
     <nav className="navbar">
-      <ul className={"navbar__menu--" + type}>
-        <li className="navbar__menu--item">
-          <Link to={"/"}>Home</Link>
-        </li>
-        <li className="navbar__menu--item">
-          <Link to={"/panels"}>Panels</Link>
-        </li>
-        <li className="navbar__menu--item">
-          <Link to={"/"}>CutList</Link>
-        </li>
+      <ul className={"navbar__menu--" + section}>
+        {links.map((link) => {
+          return (
+            <li className="navbar__menu--item">
+              <Link to={`/${link}`}>{link}</Link>
+            </li>
+          );
+        })}
       </ul>
     </nav>
   );
